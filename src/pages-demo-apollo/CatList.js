@@ -29,7 +29,7 @@ export const CatList = () => {
     <>
       <Header title="Cats">
         <Button
-          variantColor="teal"
+          variantColor="brand"
           variant="ghost"
           onClick={() => { refetch(); }}
           leftIcon="repeat"

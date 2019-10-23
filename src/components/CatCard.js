@@ -8,7 +8,7 @@ export const CatCard = ({ cat, isError, isLoading, isLink, ...props }) => (
     display="block"
     color="gray.500"
     transition="0.4s"
-    _hover={isLink ? { color: 'teal.500', transform: 'translateY(-10px)' } : null}
+    _hover={isLink ? { color: 'brand.500', transform: 'translateY(-10px)' } : null}
     {...props}
   >
     <AspectRatioBox

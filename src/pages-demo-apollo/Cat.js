@@ -27,7 +27,7 @@ export const Cat = () => {
         <Button
           as={Link}
           to='/'
-          variantColor="teal"
+          variantColor="brand"
           variant="ghost"
         >
           Back to list

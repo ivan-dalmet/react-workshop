@@ -13,7 +13,7 @@ export const MoreCats = ({ currentId }) => {
           <Button
             as={Link}
             to='/cat/3le'
-            variantColor="teal"
+            variantColor="brand"
             variant="outline"
           >
             Screaming cat
@@ -23,7 +23,7 @@ export const MoreCats = ({ currentId }) => {
           <Button
             as={Link}
             to='/cat/e2a'
-            variantColor="teal"
+            variantColor="brand"
             variant="outline"
           >
             Car cat
@@ -33,7 +33,7 @@ export const MoreCats = ({ currentId }) => {
           <Button
             as={Link}
             to='/cat/MTU1MTU5MA'
-            variantColor="teal"
+            variantColor="brand"
             variant="outline"
           >
             Jumping cat
