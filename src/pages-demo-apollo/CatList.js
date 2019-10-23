@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import gql from 'graphql-tag';
-import { Stack, Button } from '@chakra-ui/core';
+import { SimpleGrid, Button } from '@chakra-ui/core';
 import { CatCard } from '../components/CatCard';
 import { useQuery } from '@apollo/react-hooks';
 import { Header } from '../components/Header';
@@ -47,7 +47,7 @@ export const CatList = () => {
           Counter demo
         </Button>
       </Header>
-      <Stack isInline spacing="6" shouldWrapChildren flexWrap="wrap">
+      <SimpleGrid spacing="6" columns={{ base: 2, sm: 3, md: 4 }}>
         {cats.map(cat => (
           <CatCard
             as={!loading ? Link : null}
@@ -58,7 +58,7 @@ export const CatList = () => {
             isLink
           />
         ))}
-      </Stack>
+      </SimpleGrid>
     </>
   );
 };

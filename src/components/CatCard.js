@@ -3,7 +3,7 @@ import { Box, PseudoBox, Image, Spinner, AspectRatioBox, Flex, Icon } from '@ch
 
 export const CatCard = ({ cat, isError, isLoading, isLink, ...props }) => (
   <PseudoBox
-    w="240px"
+    maxW="240px"
     mb="4"
     display="block"
     color="gray.500"
