@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import useReactRouter from 'use-react-router';
+import { Link, useParams } from 'react-router-dom';
 import { Button } from '@chakra-ui/core';
 import { CatCard } from '../components/CatCard';
 import { Header } from '../components/Header';
 import { MoreCats } from '../components/MoreCats';
 
 export const Cat = () => {
-  const { match } = useReactRouter();
+  const { catId } = useParams();
   const [cat, setCat] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -17,7 +16,7 @@ export const Cat = () => {
     setLoading(true);
     setError(false);
     setCat({});
-    axios.get(`https://api.thecatapi.com/v1/images/${match.params.catId}`)
+    axios.get(`https://api.thecatapi.com/v1/images/${catId}`)
       .then(res => {
         setCat(res.data);
       })
@@ -27,7 +26,7 @@ export const Cat = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, [match.params.catId]);
+  }, [catId]);
 
   return (
     <>

@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import gql from 'graphql-tag';
-import useReactRouter from 'use-react-router';
 import { Button} from '@chakra-ui/core';
 import { CatCard } from '../components/CatCard';
 import { useQuery } from '@apollo/react-hooks';
@@ -18,7 +17,7 @@ const catQuery = gql`
 `;
 
 export const Cat = () => {
-  const { match: { params: { catId }} } = useReactRouter();
+  const { catId } = useParams();
   const { data, loading, error } = useQuery(catQuery, { variables: { id: catId } })
   const { cat } = data || {};
 

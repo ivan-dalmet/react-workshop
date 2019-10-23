@@ -1,13 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import useReactRouter from 'use-react-router';
+import { Link, useParams } from 'react-router-dom';
 import { Button } from '@chakra-ui/core';
 import { CatCard } from '../components/CatCard';
 import { Header } from '../components/Header';
 
 export const Cat = () => {
-  const { match } = useReactRouter();
-  const cat = { id: match.params.catId };
+  const { catId } = useParams();
+  const cat = { id: catId };
   const loading = false;
   const error = false;
 
