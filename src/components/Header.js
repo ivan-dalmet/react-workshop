@@ -13,7 +13,7 @@ export const Header = ({ children, title}) => {
       </Text>
       {type && (
         <Box>
-          <Badge variantColor="purple">
+          <Badge variantColor="brand">
             {type}
           </Badge>
         </Box>

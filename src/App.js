@@ -5,18 +5,20 @@ import { ApolloProvider } from '@apollo/react-hooks';
 
 import './config/axios';
 import { client } from './config/apollo';
+import { customTheme } from './theme';
 import { DemoContext } from './context/demo';
 
 import { CatList, Cat, PageCounter, contextValue }
   // from './pages-demo';
   // from './pages-demo-apollo';
-  from './pages-workshop';
+  from './pages-workshop-hooks';
+  // from './pages-workshop-ui';
 
 function App() {
   return (
     <DemoContext.Provider value={contextValue}>
       <ApolloProvider client={client}>
-        <ThemeProvider>
+        <ThemeProvider theme={customTheme}>
           <CSSReset />
           <Box p="8" maxW="6xl" m="auto">
             <Router>
