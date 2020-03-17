@@ -54,7 +54,8 @@ export const CatCard = ({ cat, isError, isLoading, isLink, ...props }) => (
       >
 
         {isLoading && <Spinner size="xs" />}
-        {!isLoading && cat && cat.id && `ID: ${cat.id}`}
+        {!isLoading && !isError && cat && cat.id && `ID: ${cat.id}`}
+        {isError && 'Error'}
       </Box>
     </Box>
   </PseudoBox>

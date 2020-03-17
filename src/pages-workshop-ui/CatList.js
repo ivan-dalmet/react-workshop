@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAxios } from '../hooks-demo/useAxios';
 
 export const CatList = () => {
-  const { data: cats } = useAxios('images/search?limit=12&order=Desc');
+  const { data: cats } = useAxios('images/search?limit=12&order=RANDOM');
 
   return (
     <>

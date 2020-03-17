@@ -14,7 +14,7 @@ export const CatList = () => {
   const loadData = useCallback(() => {
     setCats(placeholderCats)
     setLoading(true);
-    axios.get('https://api.thecatapi.com/v1/images/search?limit=12&order=Desc')
+    axios.get('https://api.thecatapi.com/v1/images/search?limit=12&order=RANDOM')
       .then(res => {
         setCats(res.data);
         setLoading(false);

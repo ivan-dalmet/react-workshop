@@ -1,25 +1,21 @@
 import React from 'react';
+import { useQuery } from 'react-query';
 import { Link, useParams } from 'react-router-dom';
-import gql from 'graphql-tag';
-import { Button} from '@chakra-ui/core';
+import { Button } from '@chakra-ui/core';
 import { CatCard } from '../components/CatCard';
-import { useQuery } from '@apollo/react-hooks';
 import { Header } from '../components/Header';
 import { MoreCats } from '../components/MoreCats';
-
-const catQuery = gql`
-  query cat($id: UUID!) {
-    cat(id: $id) @rest(type: "Cat", path: "images/{args.id}") {
-      id
-      url
-    }
-  }
-`;
+import fetcher from '../config/fetcher';
 
 export const Cat = () => {
   const { catId } = useParams();
-  const { data, loading, error } = useQuery(catQuery, { variables: { id: catId } })
-  const { cat } = data || {};
+  const { data: cat, status } = useQuery(
+    `images/${catId}`,
+    fetcher(),
+    {
+      retry: 1,
+    }
+  );
 
   return (
     <>
@@ -35,10 +31,10 @@ export const Cat = () => {
       </Header>
       <CatCard
         cat={cat}
-        isLoading={loading}
-        isError={error}
+        isLoading={status === 'loading'}
+        isError={status === 'error'}
       />
-      {!loading && !error && cat && <MoreCats currentId={cat && cat.id} />}
+      <MoreCats currentId={catId} />
     </>
   );
 };

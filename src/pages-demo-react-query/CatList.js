@@ -1,29 +1,21 @@
 import React from 'react';
+import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
-import gql from 'graphql-tag';
 import { SimpleGrid, Button } from '@chakra-ui/core';
 import { CatCard } from '../components/CatCard';
-import { useQuery } from '@apollo/react-hooks';
 import { Header } from '../components/Header';
+import fetcher from '../config/fetcher';
 
 const placeholderCats = [...Array(12)].map((x, i) => ({ id: i }));
 
-const catsQuery = gql`
-  query cats {
-    cats @rest(type: "[Cat]", path: "images/search?limit=12&order=Desc") {
-      id
-      url
-    }
-  }
-`;
-
 export const CatList = () => {
-  const { data, loading, refetch } = useQuery(
-    catsQuery,
-    { notifyOnNetworkStatusChange: true, /* fetchPolicy: 'network-only' */ }
+  const { data: cats, status, isFetching, refetch } = useQuery(
+    'images/search?limit=12&order=RANDOM',
+    fetcher(),
+    {
+      staleTime: 24 * 60 * 60 * 1000, // Prevent refetch during 24 hours
+    }
   );
-
-  const { cats } = data || { cats: placeholderCats };
 
   return (
     <>
@@ -31,9 +23,9 @@ export const CatList = () => {
         <Button
           variantColor="brand"
           variant="ghost"
-          onClick={() => { refetch(); }}
+          onClick={() => refetch({ force: true })}
           leftIcon="repeat"
-          isLoading={loading}
+          isLoading={isFetching}
           loadingText="Refresh"
           minW="130px"
         >
@@ -48,13 +40,14 @@ export const CatList = () => {
         </Button>
       </Header>
       <SimpleGrid spacing="6" columns={{ base: 2, sm: 3, md: 4 }}>
-        {cats.map(cat => (
+        {(cats || placeholderCats).map(cat => (
           <CatCard
-            as={!loading ? Link : null}
+            as={status === 'success' ? Link : null}
             to={`/cat/${cat.id}`}
             key={cat.id}
             cat={cat}
-            isLoading={loading}
+            isLoading={status === 'loading'}
+            isError={status === 'error'}
             isLink
           />
         ))}
