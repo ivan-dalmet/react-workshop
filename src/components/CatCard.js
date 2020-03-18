@@ -3,18 +3,18 @@ import { Box, PseudoBox, Image, Spinner, AspectRatioBox, Flex, Icon } from '@ch
 
 export const CatCard = ({ cat, isError, isLoading, isLink, ...props }) => (
   <PseudoBox
-    maxW="240px"
     mb="4"
     display="block"
     color="gray.500"
     transition="0.4s"
-    _hover={isLink ? { color: 'brand.500', transform: 'translateY(-10px)' } : null}
+    _hover={isLink ? { color: 'brand.500', transform: 'translateY(-0.6rem)' } : null}
     {...props}
   >
     <AspectRatioBox
       ratio={1}
     >
       <PseudoBox
+        maxWidth="100%"
         backgroundColor={!isError ? 'gray.700' : 'red.500'}
         borderWidth="1px"
         rounded="lg"
@@ -35,7 +35,7 @@ export const CatCard = ({ cat, isError, isLoading, isLink, ...props }) => (
         {!isLoading && (
           <Image
             position="relative"
-            size="2xs"
+            size="full"
             src={cat ? cat.url : null}
             alt=""
             objectFit="cover"

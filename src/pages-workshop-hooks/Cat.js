@@ -23,11 +23,12 @@ export const Cat = () => {
         </Button>
       </Header>
       <CatCard
+        w="25rem"
         cat={cat}
         isLoading={loading}
         isError={error}
       />
-      {/* {!isLoading && <MoreCats currentId={cat && cat.id} />} */}
+      {/* <MoreCats currentId={catId} /> */}
     </>
   );
 };

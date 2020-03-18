@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
-import { Button } from '@chakra-ui/core';
+import { Button } from '@chakra-ui/core';
 import { CatCard } from '../components/CatCard';
 import { Header } from '../components/Header';
 import { MoreCats } from '../components/MoreCats';
@@ -41,11 +41,12 @@ export const Cat = () => {
         </Button>
       </Header>
       <CatCard
+        w="25rem"
         cat={cat}
         isLoading={loading}
         isError={!!error}
       />
-      {!loading && !error && <MoreCats currentId={cat && cat.id} />}
+      <MoreCats currentId={catId} />
     </>
   );
 };
