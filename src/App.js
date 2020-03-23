@@ -7,10 +7,10 @@ import { customTheme } from './theme';
 import { DemoContext } from './context/demo';
 
 import { CatList, Cat, PageCounter, contextValue }
-  from './pages-workshop-hooks';
+  // from './pages-workshop-hooks';
   // from './pages-workshop-ui';
   // from './pages-demo';
-  // from './pages-demo-react-query';
+  from './pages-demo-react-query';
 
 function App() {
   return (

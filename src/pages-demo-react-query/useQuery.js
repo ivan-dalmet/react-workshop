@@ -1,27 +1,34 @@
 import { useEffect } from 'react';
 import { useQuery, queryCache } from 'react-query';
-import fetcher from '../config/fetcher';
+import axios from 'axios';
+import { reactQueryConfig } from '../config/axios';
 
-export const useCat = (catId) => useQuery(
-  `images/${catId}`,
-  fetcher(),
+reactQueryConfig();
+
+const API_PATH = 'https://api.thecatapi.com/v1';
+
+export const useCat = (catId, options) => useQuery(
+  ['cat', catId],
+  () => axios.get(`${API_PATH}/images/${catId}`),
   {
     retry: 1,
+    ...options,
   }
 )
 
-export const useCats = () => {
+export const useCats = (options) => {
   const query = useQuery(
-    'images/search?limit=12&order=RANDOM',
-    fetcher(),
+    'cats',
+    () => axios.get(`${API_PATH}/images/search?limit=12&order=RANDOM&size=small`),
     {
       staleTime: 24 * 60 * 60 * 1000, // Prevent refetch during 24 hours
+      ...options,
     }
   );
 
   useEffect(() => {
     (query.data || []).forEach((cat) => {
-      queryCache.setQueryData(`images/${cat.id}`, () => cat);
+      queryCache.setQueryData(['cat', cat.id], (data) => data ?? cat);
     });
   }, [query.data]);
 
