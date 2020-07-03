@@ -21,7 +21,7 @@ export const useCats = (options) => {
     'cats',
     () => axios.get(`${API_PATH}/images/search?limit=12&order=RANDOM&size=small`),
     {
-      staleTime: 24 * 60 * 60 * 1000, // Prevent refetch during 24 hours
+      staleTime: Infinity,
       ...options,
     }
   );

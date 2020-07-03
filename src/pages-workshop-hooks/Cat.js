@@ -10,6 +10,8 @@ export const Cat = () => {
   const loading = false;
   const error = false;
 
+  // `https://api.thecatapi.com/v1/images/${catId}`
+
   return (
     <>
       <Header title="Cat">

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Box, Button, IconButton, Stack } from '@chakra-ui/core';
 import { CatCard } from '../components/CatCard';
@@ -9,11 +9,7 @@ import { useCat, useCats } from './useQuery';
 export const Cat = () => {
   const { catId } = useParams();
   const { data: cat, status } = useCat(catId);
-  const { data: cats, refetch: fetchCats } = useCats({ manual: true });
-
-  useEffect(() => {
-    fetchCats();
-  }, [status, fetchCats]);
+  const { data: cats } = useCats();
 
   const catIndex = (cats || []).findIndex(({ id }) => id === catId);
   const prevCat = catIndex > 0 ? cats?.find((x, index) => index === catIndex - 1) : undefined;

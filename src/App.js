@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { ReactQueryDevtools } from 'react-query-devtools' // eslint-disable-line no-unused-vars
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { ThemeProvider, CSSReset, Box } from "@chakra-ui/core";
 
 import './config/axios';
@@ -25,6 +26,7 @@ function App() {
           </Router>
         </Box>
       </ThemeProvider>
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </DemoContext.Provider>
   );
 }
