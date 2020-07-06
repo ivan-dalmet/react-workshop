@@ -7,6 +7,9 @@ export const CatList = () => {
 
   return (
     <>
+      <Link to="/cat/new">
+        Add New Cat
+      </Link>
       <Link to="/counter">
         Go to Counter
       </Link>

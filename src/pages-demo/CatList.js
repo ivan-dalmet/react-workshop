@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { SimpleGrid, Button } from '@chakra-ui/core';
+import { SimpleGrid, Button, Stack } from '@chakra-ui/core';
 import { CatCard } from '../components/CatCard';
 import { Header } from '../components/Header';
 
@@ -39,13 +39,21 @@ export const CatList = () => {
         >
           Refresh
         </Button>
-        <Button
-          as={Link}
-          to="/counter"
-          ml="auto"
-        >
-          Counter demo
-        </Button>
+        <Stack ml="auto" spacing="4" isInline>
+          <Button
+            as={Link}
+            variantColor="brand"
+            to="/cat/new"
+          >
+            Add New Cat
+          </Button>
+          <Button
+            as={Link}
+            to="/counter"
+          >
+            Counter demo
+          </Button>
+        </Stack>
       </Header>
       <SimpleGrid spacing="6" columns={{ base: 2, sm: 3, md: 4 }}>
         {cats.map(cat => (
