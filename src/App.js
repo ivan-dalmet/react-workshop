@@ -1,7 +1,7 @@
 import React from 'react';
 import { ReactQueryDevtools } from 'react-query-devtools' // eslint-disable-line no-unused-vars
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { ThemeProvider, CSSReset, Box } from "@chakra-ui/core";
+import { ThemeProvider, CSSReset, Box } from '@chakra-ui/core';
 
 import './config/axios';
 import { customTheme } from './theme';
