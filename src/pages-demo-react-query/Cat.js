@@ -8,7 +8,7 @@ import { useCat, useCats } from './useQuery';
 
 export const Cat = () => {
   const { catId } = useParams();
-  const { data: cat, status } = useCat(catId);
+  const { data: cat, isLoading, isError } = useCat(catId);
   const { data: cats } = useCats();
 
   const catIndex = (cats || []).findIndex(({ id }) => id === catId);
@@ -32,8 +32,8 @@ export const Cat = () => {
         <CatCard
           w="40rem"
           cat={cat}
-          isLoading={status === 'loading'}
-          isError={status === 'error'}
+          isLoading={isLoading}
+          isError={isError}
         />
         {isCatAvailableInList && (
           <Stack>

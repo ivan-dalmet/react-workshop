@@ -8,7 +8,7 @@ import { useCats } from './useQuery';
 const placeholderCats = [...Array(12)].map((x, i) => ({ id: i }));
 
 export const CatList = () => {
-  const { data: cats, status, isFetching, refetch } = useCats();
+  const { data: cats, isLoading, isError, isSuccess, isFetching, refetch } = useCats();
 
   return (
     <>
@@ -43,12 +43,12 @@ export const CatList = () => {
       <SimpleGrid spacing="6" columns={{ base: 2, sm: 3, md: 4 }}>
         {(cats || placeholderCats).map(cat => (
           <CatCard
-            as={status === 'success' ? Link : null}
+            as={isSuccess ? Link : null}
             to={`/cat/${cat.id}`}
             key={cat.id}
             cat={cat}
-            isLoading={status === 'loading'}
-            isError={status === 'error'}
+            isLoading={isLoading}
+            isError={isError}
             isLink
           />
         ))}
