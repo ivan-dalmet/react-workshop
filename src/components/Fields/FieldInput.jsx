@@ -59,7 +59,7 @@ export const FieldInput = (props) => {
           key={resetKey}
           type={type || 'text'}
           id={id}
-          value={value ?? ''}
+          value={value || ''}
           onChange={(e) => setValue(e.target.value)}
           onBlur={() => setIsTouched(true)}
           aria-invalid={showError}

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Stat, StatLabel, StatNumber, Stack, StatHelpText, IconButton, Button } from '@chakra-ui/core';
+import { Link } from 'react-router-dom';
+import {
+  Stat, StatLabel, StatNumber, Stack, StatHelpText, IconButton, Button,
+} from '@chakra-ui/core';
 import { Header } from '../components/Header';
 
 export const PageCounter = () => {
@@ -9,7 +11,7 @@ export const PageCounter = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setAutoCounter(x => x + 1);
+      setAutoCounter((x) => x + 1);
     }, 1000);
 
     return () => {
@@ -19,7 +21,7 @@ export const PageCounter = () => {
 
   useEffect(() => {
     if (autoCounter && autoCounter % 10 === 0) {
-      setManualCounter(x => x + 1);
+      setManualCounter((x) => x + 1);
     }
   }, [autoCounter]);
 
@@ -48,7 +50,7 @@ export const PageCounter = () => {
             <IconButton
               size="xs"
               icon="minus"
-              onClick={() => setManualCounter(x => x - 1)}
+              onClick={() => setManualCounter((x) => x - 1)}
             />
             <StatNumber minW="30px" textAlign="center">
               {manualCounter}
@@ -56,7 +58,7 @@ export const PageCounter = () => {
             <IconButton
               size="xs"
               icon="add"
-              onClick={() => setManualCounter(x => x + 1)}
+              onClick={() => setManualCounter((x) => x + 1)}
             />
           </Stack>
           <StatHelpText>Auto increment everytime 10 of auto counter</StatHelpText>

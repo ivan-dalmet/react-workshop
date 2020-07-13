@@ -17,10 +17,10 @@ export const Cat = () => {
     setError(false);
     setCat({});
     axios.get(`https://api.thecatapi.com/v1/images/${catId}`)
-      .then(res => {
+      .then((res) => {
         setCat(res.data);
       })
-      .catch(err => {
+      .catch((err) => {
         setError(err);
       })
       .finally(() => {
@@ -33,7 +33,7 @@ export const Cat = () => {
       <Header title="Cat">
         <Button
           as={Link}
-          to='/'
+          to="/"
           variantColor="brand"
           variant="ghost"
         >

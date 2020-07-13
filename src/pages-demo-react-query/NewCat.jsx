@@ -7,12 +7,12 @@ import { FieldUploader } from '../components/Fields/FieldUploader';
 import { useAddCat } from './useQuery';
 
 export const NewCat = () => {
-  const form = useForm()
-  const [addCat, { isLoading }] = useAddCat()
+  const form = useForm();
+  const [addCat, { isLoading }] = useAddCat();
 
   const handleSubmit = (values) => {
-    addCat(values)
-  }
+    addCat(values);
+  };
 
   return (
     <>

@@ -8,7 +8,9 @@ export const Cat = () => {
 
   return (
     <>
-      Cat page {cat ? cat.id : 'Not found'}
+      Cat page
+      {' '}
+      {cat ? cat.id : 'Not found'}
       <br />
       <Link to="/">
         Back to list

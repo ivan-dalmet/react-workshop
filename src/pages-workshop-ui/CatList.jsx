@@ -16,7 +16,7 @@ export const CatList = () => {
       <br />
       Cats list
 
-      {(cats || []).map(cat => (
+      {(cats || []).map((cat) => (
         <div>
           <Link to={`/cat/${cat.id}`}>
             {cat.id}

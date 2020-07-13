@@ -9,15 +9,16 @@ export const useAxios = (path, options = {}) => {
   const refetch = useCallback(() => {
     setLoading(true);
     axios.get(`https://api.thecatapi.com/v1/${path}`, options)
-      .then(res => setData(res.data))
-      .catch(err => setError(err))
+      .then((res) => setData(res.data))
+      .catch((err) => setError(err))
       .finally(() => setLoading(false));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [path, JSON.stringify(options)]);
 
   useEffect(() => {
     refetch();
   }, [refetch]);
 
-  return { data, loading, error, refetch };
-}
+  return {
+    data, loading, error, refetch,
+  };
+};

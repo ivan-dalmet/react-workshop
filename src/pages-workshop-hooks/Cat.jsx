@@ -17,7 +17,7 @@ export const Cat = () => {
       <Header title="Cat">
         <Button
           as={Link}
-          to='/'
+          to="/"
           variantColor="brand"
           variant="ghost"
         >

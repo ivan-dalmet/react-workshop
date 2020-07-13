@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
-import { Text, Badge, Stack, Box } from '@chakra-ui/core';
+import {
+  Text, Badge, Stack, Box,
+} from '@chakra-ui/core';
 
 import { DemoContext } from '../context/demo';
 
-export const Header = ({ children, title}) => {
+export const Header = ({ children, title }) => {
   const type = useContext(DemoContext);
 
   return (

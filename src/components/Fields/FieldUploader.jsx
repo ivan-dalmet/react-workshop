@@ -40,7 +40,7 @@ export const FieldUploader = (props) => {
           w="100%"
           type="file"
           accept="image/*"
-          onChange={e => {
+          onChange={(e) => {
             setValue({
               file: e.target.files[0],
               url: URL.createObjectURL(e.target.files[0]),

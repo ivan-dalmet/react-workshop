@@ -1,7 +1,11 @@
 import React from 'react';
-import { Box, PseudoBox, Image, Spinner, AspectRatioBox, Flex, Icon } from '@chakra-ui/core';
+import {
+  Box, PseudoBox, Image, Spinner, AspectRatioBox, Flex, Icon,
+} from '@chakra-ui/core';
 
-export const CatCard = ({ cat, isError, isLoading, isLink, ...props }) => (
+export const CatCard = ({
+  cat, isError, isLoading, isLink, ...props
+}) => (
   <PseudoBox
     mb="4"
     display="block"

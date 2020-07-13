@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { Box, Button, IconButton, Stack } from '@chakra-ui/core';
+import {
+  Box, Button, IconButton, Stack,
+} from '@chakra-ui/core';
 import { CatCard } from '../components/CatCard';
 import { Header } from '../components/Header';
 import { MoreCats } from '../components/MoreCats';
@@ -43,7 +45,9 @@ export const Cat = () => {
               color="gray.400"
               fontSize="xs"
             >
-              {catIndex + 1}/{cats?.length}
+              {catIndex + 1}
+              /
+              {cats?.length}
             </Box>
             <IconButton
               as={nextCat ? Link : null}

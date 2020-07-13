@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const PageCounter = () => {
   const [manualCounter, setManualCounter] = useState(0);
@@ -7,7 +7,7 @@ export const PageCounter = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setAutoCounter(x => x + 1);
+      setAutoCounter((x) => x + 1);
     }, 1000);
 
     return () => {
@@ -17,7 +17,7 @@ export const PageCounter = () => {
 
   useEffect(() => {
     if (autoCounter && autoCounter % 10 === 0) {
-      setManualCounter(x => x + 1);
+      setManualCounter((x) => x + 1);
     }
   }, [autoCounter]);
 
@@ -29,10 +29,14 @@ export const PageCounter = () => {
       <br />
       Page Counter
       <div>
-        Manual counter: {manualCounter}
+        Manual counter:
+        {' '}
+        {manualCounter}
       </div>
       <div>
-        Auto counter: {autoCounter}
+        Auto counter:
+        {' '}
+        {autoCounter}
       </div>
     </>
   );

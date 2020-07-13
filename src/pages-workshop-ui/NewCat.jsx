@@ -4,7 +4,6 @@ import { Button } from '@chakra-ui/core';
 import { Header } from '../components/Header';
 
 export const NewCat = () => {
-
   return (
     <>
       <Header title="New Cat">

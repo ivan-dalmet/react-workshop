@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useQuery, queryCache, useMutation } from 'react-query';
 import axios from 'axios';
-import { reactQueryConfig } from '../config/axios';
 import { useHistory } from 'react-router-dom';
+import { reactQueryConfig } from '../config/axios';
 
 reactQueryConfig();
 
@@ -14,8 +14,8 @@ export const useCat = (catId, options = {}) => useQuery(
   {
     retry: 1,
     ...options,
-  }
-)
+  },
+);
 
 export const useAddCat = (options = {}) => {
   const history = useHistory();
@@ -38,10 +38,10 @@ export const useAddCat = (options = {}) => {
         queryCache.invalidateQueries('cats');
         history.push('/');
       },
-      ...options
-    }
-  )
-}
+      ...options,
+    },
+  );
+};
 
 export const useCats = (options = {}) => {
   const query = useQuery(
@@ -51,7 +51,7 @@ export const useCats = (options = {}) => {
     {
       staleTime: Infinity,
       ...options,
-    }
+    },
   );
 
   useEffect(() => {
