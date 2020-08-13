@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useQuery, queryCache, useMutation } from 'react-query';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
@@ -9,7 +8,7 @@ reactQueryConfig();
 const API_PATH = 'https://api.thecatapi.com/v1';
 
 export const useCat = (catId, options = {}) => useQuery(
-  ['cats', catId],
+  ['cat', catId],
   () => axios.get(`${API_PATH}/images/${catId}`),
   {
     retry: 1,
@@ -44,21 +43,20 @@ export const useAddCat = (options = {}) => {
 };
 
 export const useCats = (options = {}) => {
-  const query = useQuery(
+  return useQuery(
     'cats',
     () => axios.get(`${API_PATH}/images/search?limit=12&order=RANDOM&size=small`),
-    // () => axios.get(`${API_PATH}/images?limit=12&order=RANDOM&size=small`),
     {
       staleTime: Infinity,
+      onSuccess: (cats) => {
+        (cats || []).forEach((cat) => {
+          queryCache.setQueryData(['cat', cat.id], (data) => data ?? cat);
+        });
+        if (options.onSuccess) {
+          options.onSuccess();
+        }
+      },
       ...options,
     },
   );
-
-  useEffect(() => {
-    (query.data || []).forEach((cat) => {
-      queryCache.setQueryData(['cat', cat.id], (data) => data ?? cat);
-    });
-  }, [query.data]);
-
-  return query;
 };

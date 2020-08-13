@@ -4,9 +4,9 @@
   "private": true,
   "dependencies": {
     "@chakra-ui/core": "0.8.0",
-    "@emotion/core": "10.0.28",
+    "@emotion/core": "10.0.34",
     "@emotion/styled": "10.0.27",
-    "@formiz/core": "1.0.0-rc.14",
+    "@formiz/core": "1.0.0-rc.17",
     "@formiz/validations": "1.0.0-rc.14",
     "axios": "0.19.2",
     "emotion-theming": "10.0.27",
@@ -14,10 +14,10 @@
     "prop-types": "15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-query": "2.4.12",
-    "react-query-devtools": "2.3.0",
+    "react-query": "2.5.13",
+    "react-query-devtools": "2.4.2",
     "react-router-dom": "5.2.0",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -42,11 +42,10 @@
   },
   "devDependencies": {
     "babel-eslint": "10.1.0",
-    "eslint": "7.4.0",
     "eslint-config-airbnb": "18.2.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.20.3",
-    "eslint-plugin-react-hooks": "4.0.7"
+    "eslint-plugin-import": "2.22.0",
+    "eslint-plugin-jsx-a11y": "6.3.1",
+    "eslint-plugin-react": "7.20.6",
+    "eslint-plugin-react-hooks": "4.0.8"
   }
 }
