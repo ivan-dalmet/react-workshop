@@ -1,6 +1,7 @@
 import { useQuery, queryCache, useMutation } from 'react-query';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import { useToast } from '@chakra-ui/core';
 import { reactQueryConfig } from '../config/axios';
 
 reactQueryConfig();
@@ -18,6 +19,7 @@ export const useCat = (catId, options = {}) => useQuery(
 
 export const useAddCat = (options = {}) => {
   const history = useHistory();
+  const toast = useToast();
   return useMutation(
     ({ catImage }) => {
       const formData = new FormData();
@@ -35,7 +37,24 @@ export const useAddCat = (options = {}) => {
     {
       onSuccess: () => {
         queryCache.invalidateQueries('cats');
+        toast({
+          title: 'Upload succeeded',
+          status: 'success',
+          duration: 2000,
+          isClosable: true,
+          position: 'top-left',
+        });
         history.push('/');
+      },
+      onError: (error) => {
+        toast({
+          title: 'Upload failed',
+          description: error?.response?.data?.message,
+          status: 'error',
+          duration: null,
+          isClosable: true,
+          position: 'top-left',
+        });
       },
       ...options,
     },
