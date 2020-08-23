@@ -30,9 +30,28 @@ export const FieldUploader = (props) => {
   return (
     <FormGroup {...formGroupProps}>
       {value ? (
-        <Box>
-          <Image h="10rem" w="10rem" objectFit="cover" src={value.url} />
-          <IconButton icon="delete" onClick={() => setValue(null)} />
+        <Box
+          position="relative"
+          h="10rem"
+          w="10rem"
+          bg="gray.200"
+          borderRadius="md"
+          overflow="hidden"
+        >
+          <Image
+            objectFit="cover"
+            h="full"
+            w="full"
+            src={value.url}
+          />
+          <IconButton
+            position="absolute"
+            top="2"
+            right="2"
+            icon="delete"
+            size="sm"
+            onClick={() => setValue(null)}
+          />
         </Box>
       ) : (
         <Box
