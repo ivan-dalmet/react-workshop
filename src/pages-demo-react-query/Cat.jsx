@@ -34,7 +34,8 @@ export const Cat = () => {
         </Button>
       </Header>
       <Stack
-        direction="row"
+        direction={{ base: 'column', sm: 'row' }}
+        mb="4"
         maxW="full"
       >
         <MotionBox
@@ -56,12 +57,19 @@ export const Cat = () => {
           />
         </MotionBox>
         {isCatAvailableInList && (
-          <Stack>
+          <Stack direction={{ base: 'row', sm: 'column' }} align="center">
+            <IconButton
+              as={prevCat ? Link : null}
+              to={`/cat/${prevCat?.id}`}
+              icon={<ArrowBackIcon />}
+              isDisabled={!prevCat}
+            />
             <Box
               textAlign="center"
               fontWeight="bold"
               color="gray.400"
               fontSize="xs"
+              flex={{ base: 1, sm: 'none' }}
             >
               {catIndex + 1}
               /
@@ -72,12 +80,6 @@ export const Cat = () => {
               to={`/cat/${nextCat?.id}`}
               icon={<ArrowForwardIcon />}
               isDisabled={!nextCat}
-            />
-            <IconButton
-              as={prevCat ? Link : null}
-              to={`/cat/${prevCat?.id}`}
-              icon={<ArrowBackIcon />}
-              isDisabled={!prevCat}
             />
           </Stack>
         )}

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Text, Button, Stack } from '@chakra-ui/core';
+import { Text, Button, Wrap } from '@chakra-ui/core';
 
 export const MoreCats = ({ currentId }) => (
   <>
     <Text fontSize="xl" mb="2" fontWeight="bold">
       More cats?
     </Text>
-    <Stack direction="row">
+    <Wrap>
       {currentId && currentId !== '3le' && (
       <Button
         as={Link}
@@ -38,6 +38,6 @@ export const MoreCats = ({ currentId }) => (
         Jumping cat
       </Button>
       )}
-    </Stack>
+    </Wrap>
   </>
 );

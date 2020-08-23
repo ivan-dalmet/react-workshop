@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { useAxios } from '../hooks-demo/useAxios';
+import { useCat } from '../pages-demo-react-query/useQuery';
 
 export const Cat = () => {
   const { catId } = useParams();
-  const { data: cat } = useAxios(`images/${catId}`);
+  const { data: cat } = useCat(catId);
 
   return (
     <>

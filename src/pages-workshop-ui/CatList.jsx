@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useAxios } from '../hooks-demo/useAxios';
+import { useCats } from '../pages-demo-react-query/useQuery';
 
 export const CatList = () => {
-  const { data: cats } = useAxios('images/search?limit=12&order=RANDOM');
+  const {
+    data: cats,
+  } = useCats();
 
   return (
     <>
