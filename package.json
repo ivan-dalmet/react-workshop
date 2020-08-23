@@ -10,6 +10,7 @@
     "@formiz/validations": "1.0.0-rc.14",
     "axios": "0.20.0",
     "emotion-theming": "10.0.27",
+    "framer-motion": "2.4.3-beta.2",
     "isomorphic-unfetch": "3.0.0",
     "prop-types": "15.7.2",
     "react": "16.13.1",

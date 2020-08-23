@@ -7,6 +7,8 @@ import { CatCard } from '../components/CatCard';
 import { Header } from '../components/Header';
 import { MoreCats } from '../components/MoreCats';
 import { useCat, useCats } from './useQuery';
+import { MotionBox } from '../components/MotionBox';
+import { AnimatedLayout } from '../components/AnimatedLayout';
 
 export const Cat = () => {
   const { catId } = useParams();
@@ -19,7 +21,7 @@ export const Cat = () => {
   const isCatAvailableInList = catIndex > -1;
 
   return (
-    <>
+    <AnimatedLayout>
       <Header title="Cat">
         <Button
           as={Link}
@@ -30,13 +32,28 @@ export const Cat = () => {
           Back to list
         </Button>
       </Header>
-      <Stack isInline>
-        <CatCard
-          w="40rem"
-          cat={cat}
-          isLoading={isLoading}
-          isError={isError}
-        />
+      <Stack
+        isInline
+        maxW="full"
+      >
+        <MotionBox
+          maxW="full"
+          variants={{
+            exit: { y: 30 },
+            enter: { y: 0 },
+          }}
+          initial="exit"
+          animate="enter"
+          exit="exit"
+        >
+          <CatCard
+            w="40rem"
+            maxW="full"
+            cat={cat}
+            isLoading={isLoading}
+            isError={isError}
+          />
+        </MotionBox>
         {isCatAvailableInList && (
           <Stack>
             <Box
@@ -65,6 +82,6 @@ export const Cat = () => {
         )}
       </Stack>
       <MoreCats currentId={catId} />
-    </>
+    </AnimatedLayout>
   );
 };

@@ -2,16 +2,16 @@ import React from 'react';
 import {
   Box, PseudoBox, Image, Spinner, AspectRatioBox, Flex, Icon,
 } from '@chakra-ui/core';
+import { MotionBox } from './MotionBox';
 
 export const CatCard = ({
-  cat, isError, isLoading, isLink, ...props
+  cat, isError, isLoading, style, ...props
 }) => (
-  <PseudoBox
+  <MotionBox
+    layout
     mb="4"
     display="block"
     color="gray.500"
-    transition="0.4s"
-    _hover={isLink ? { color: 'brand.500', transform: 'translateY(-0.6rem)' } : null}
     {...props}
   >
     <AspectRatioBox
@@ -36,11 +36,11 @@ export const CatCard = ({
             </Flex>
           )}
         </Flex>
-        {!isLoading && (
+        {!isLoading && cat && (
           <Image
             position="relative"
             size="full"
-            src={cat ? cat.url : null}
+            src={cat?.url ?? null}
             alt=""
             objectFit="cover"
           />
@@ -58,9 +58,9 @@ export const CatCard = ({
       >
 
         {isLoading && <Spinner size="xs" />}
-        {!isLoading && !isError && cat && cat.id && `ID: ${cat.id}`}
+        {!isLoading && !isError && cat?.id && `ID: ${cat.id}`}
         {isError && 'Error'}
       </Box>
     </Box>
-  </PseudoBox>
+  </MotionBox>
 );

@@ -4,6 +4,8 @@ import { SimpleGrid, Button, Stack } from '@chakra-ui/core';
 import { CatCard } from '../components/CatCard';
 import { Header } from '../components/Header';
 import { useCats } from './useQuery';
+import { MotionBox } from '../components/MotionBox';
+import { AnimatedLayout } from '../components/AnimatedLayout';
 
 const placeholderCats = [...Array(12)].map((x, i) => ({ id: i }));
 
@@ -13,7 +15,7 @@ export const CatList = () => {
   } = useCats();
 
   return (
-    <>
+    <AnimatedLayout>
       <Header title="Cats">
         <Button
           variantColor="brand"
@@ -44,17 +46,18 @@ export const CatList = () => {
       </Header>
       <SimpleGrid spacing="6" columns={{ base: 2, sm: 3, md: 4 }}>
         {(cats || placeholderCats).map((cat) => (
-          <CatCard
-            as={isSuccess ? Link : null}
-            to={`/cat/${cat.id}`}
-            key={cat.id}
-            cat={cat}
-            isLoading={isLoading}
-            isError={isError}
-            isLink
-          />
+          <MotionBox key={cat.id}>
+            <CatCard
+              as={isSuccess ? Link : null}
+              to={`/cat/${cat.id}`}
+              cat={cat}
+              isLoading={isLoading}
+              isError={isError}
+              whileHover={{ y: 10 }}
+            />
+          </MotionBox>
         ))}
       </SimpleGrid>
-    </>
+    </AnimatedLayout>
   );
 };

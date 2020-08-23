@@ -5,6 +5,7 @@ import { Formiz, useForm } from '@formiz/core';
 import { Header } from '../components/Header';
 import { FieldUploader } from '../components/Fields/FieldUploader';
 import { useAddCat } from './useQuery';
+import { AnimatedLayout } from '../components/AnimatedLayout';
 
 export const NewCat = () => {
   const form = useForm();
@@ -15,7 +16,7 @@ export const NewCat = () => {
   };
 
   return (
-    <>
+    <AnimatedLayout>
       <Header title="New Cat">
         <Button
           as={Link}
@@ -45,6 +46,6 @@ export const NewCat = () => {
           Submit
         </Button>
       </Formiz>
-    </>
+    </AnimatedLayout>
   );
 };

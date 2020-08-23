@@ -52,7 +52,6 @@ export const CatList = () => {
             key={cat.id}
             cat={cat}
             isLoading={loading}
-            isLink
           />
         ))}
       </SimpleGrid>

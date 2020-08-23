@@ -4,6 +4,7 @@ import {
   Stat, StatLabel, StatNumber, Stack, StatHelpText, IconButton, Button,
 } from '@chakra-ui/core';
 import { Header } from '../components/Header';
+import { AnimatedLayout } from '../components/AnimatedLayout';
 
 export const PageCounter = () => {
   const [manualCounter, setManualCounter] = useState(0);
@@ -26,7 +27,7 @@ export const PageCounter = () => {
   }, [autoCounter]);
 
   return (
-    <>
+    <AnimatedLayout>
       <Header title="Counter">
         <Button
           as={Link}
@@ -81,6 +82,6 @@ export const PageCounter = () => {
         </Stat>
 
       </Stack>
-    </>
+    </AnimatedLayout>
   );
 };
