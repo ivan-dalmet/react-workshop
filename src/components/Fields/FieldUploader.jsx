@@ -1,6 +1,7 @@
 import React from 'react';
 import { useField } from '@formiz/core';
 import { Box, Image, IconButton } from '@chakra-ui/core';
+import { DeleteIcon } from '@chakra-ui/icons';
 import { FormGroup } from '../FormGroup';
 
 export const FieldUploader = (props) => {
@@ -48,7 +49,7 @@ export const FieldUploader = (props) => {
             position="absolute"
             top="2"
             right="2"
-            icon="delete"
+            icon={<DeleteIcon />}
             size="sm"
             onClick={() => setValue(null)}
           />

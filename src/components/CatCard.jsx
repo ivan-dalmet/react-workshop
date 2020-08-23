@@ -1,23 +1,22 @@
 import React from 'react';
 import {
-  Box, PseudoBox, Image, Spinner, AspectRatioBox, Flex, Icon,
+  Box, Image, Spinner, AspectRatio, Flex,
 } from '@chakra-ui/core';
-import { MotionBox } from './MotionBox';
+import { WarningTwoIcon } from '@chakra-ui/icons';
 
 export const CatCard = ({
-  cat, isError, isLoading, style, ...props
+  cat, isError, isLoading, ...props
 }) => (
-  <MotionBox
-    layout
+  <Box
     mb="4"
     display="block"
     color="gray.500"
     {...props}
   >
-    <AspectRatioBox
+    <AspectRatio
       ratio={1}
     >
-      <PseudoBox
+      <Box
         maxWidth="100%"
         backgroundColor={!isError ? 'gray.700' : 'red.500'}
         borderWidth="1px"
@@ -31,22 +30,22 @@ export const CatCard = ({
           )}
           {isError && (
             <Flex align="center" color="white" flexDir="column">
-              <Icon name="warning-2" size="24px" />
-              Fail to get this cat
+              <WarningTwoIcon size="24px" />
+              Failed to get this cat
             </Flex>
           )}
         </Flex>
         {!isLoading && cat && (
           <Image
             position="relative"
-            size="full"
+            boxSize="full"
             src={cat?.url ?? null}
             alt=""
             objectFit="cover"
           />
         )}
-      </PseudoBox>
-    </AspectRatioBox>
+      </Box>
+    </AspectRatio>
 
     <Box p="3">
       <Box
@@ -62,5 +61,5 @@ export const CatCard = ({
         {isError && 'Error'}
       </Box>
     </Box>
-  </MotionBox>
+  </Box>
 );

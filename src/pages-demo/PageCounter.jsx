@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   Stat, StatLabel, StatNumber, Stack, StatHelpText, IconButton, Button,
 } from '@chakra-ui/core';
+import { MinusIcon, AddIcon } from '@chakra-ui/icons';
 import { Header } from '../components/Header';
 
 export const PageCounter = () => {
@@ -36,11 +37,11 @@ export const PageCounter = () => {
           Back to cats
         </Button>
       </Header>
-      <Stack isInline>
+      <Stack direction="row">
 
         <Stat>
           <StatLabel>Manual Counter</StatLabel>
-          <Stack isInline align="center" spacing="3">
+          <Stack direction="row" align="center" spacing="3">
             <Button
               size="xs"
               onClick={() => setManualCounter(0)}
@@ -49,7 +50,7 @@ export const PageCounter = () => {
             </Button>
             <IconButton
               size="xs"
-              icon="minus"
+              icon={<MinusIcon />}
               onClick={() => setManualCounter((x) => x - 1)}
             />
             <StatNumber minW="30px" textAlign="center">
@@ -57,7 +58,7 @@ export const PageCounter = () => {
             </StatNumber>
             <IconButton
               size="xs"
-              icon="add"
+              icon={<AddIcon />}
               onClick={() => setManualCounter((x) => x + 1)}
             />
           </Stack>
@@ -66,7 +67,7 @@ export const PageCounter = () => {
 
         <Stat>
           <StatLabel>Auto Counter</StatLabel>
-          <Stack isInline align="center" spacing="3">
+          <Stack direction="row" align="center" spacing="3">
             <Button
               size="xs"
               onClick={() => setAutoCounter(0)}

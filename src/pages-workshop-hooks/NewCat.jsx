@@ -19,7 +19,7 @@ export const NewCat = () => {
         <Button
           as={Link}
           to="/"
-          variantColor="brand"
+          colorScheme="brand"
           variant="ghost"
         >
           Back to list

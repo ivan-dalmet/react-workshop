@@ -7,12 +7,12 @@ export const MoreCats = ({ currentId }) => (
     <Text fontSize="xl" mb="2" fontWeight="bold">
       More cats?
     </Text>
-    <Stack isInline>
+    <Stack direction="row">
       {currentId && currentId !== '3le' && (
       <Button
         as={Link}
         to="/cat/3le"
-        variantColor="brand"
+        colorScheme="brand"
         variant="outline"
       >
         Screaming cat
@@ -22,7 +22,7 @@ export const MoreCats = ({ currentId }) => (
       <Button
         as={Link}
         to="/cat/e2a"
-        variantColor="brand"
+        colorScheme="brand"
         variant="outline"
       >
         Car cat
@@ -32,7 +32,7 @@ export const MoreCats = ({ currentId }) => (
       <Button
         as={Link}
         to="/cat/MTU1MTU5MA"
-        variantColor="brand"
+        colorScheme="brand"
         variant="outline"
       >
         Jumping cat

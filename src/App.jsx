@@ -1,7 +1,7 @@
 import React from 'react';
 import { ReactQueryDevtools } from 'react-query-devtools'; // eslint-disable-line no-unused-vars
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { ThemeProvider, CSSReset, Box } from '@chakra-ui/core';
+import { ChakraProvider, CSSReset, Box } from '@chakra-ui/core';
 import { AnimatePresence } from 'framer-motion';
 import './config/axios';
 
@@ -19,7 +19,7 @@ import {
 function App() {
   return (
     <DemoContext.Provider value={contextValue}>
-      <ThemeProvider theme={customTheme}>
+      <ChakraProvider theme={customTheme}>
         <CSSReset />
         <Box p="8" maxW="6xl" m="auto">
           <Router>
@@ -37,7 +37,7 @@ function App() {
             />
           </Router>
         </Box>
-      </ThemeProvider>
+      </ChakraProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </DemoContext.Provider>
   );

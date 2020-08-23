@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import {
   Box, Button, IconButton, Stack,
 } from '@chakra-ui/core';
+import { ArrowForwardIcon, ArrowBackIcon } from '@chakra-ui/icons';
 import { CatCard } from '../components/CatCard';
 import { Header } from '../components/Header';
 import { MoreCats } from '../components/MoreCats';
@@ -26,14 +27,14 @@ export const Cat = () => {
         <Button
           as={Link}
           to="/"
-          variantColor="brand"
+          colorScheme="brand"
           variant="ghost"
         >
           Back to list
         </Button>
       </Header>
       <Stack
-        isInline
+        direction="row"
         maxW="full"
       >
         <MotionBox
@@ -69,13 +70,13 @@ export const Cat = () => {
             <IconButton
               as={nextCat ? Link : null}
               to={`/cat/${nextCat?.id}`}
-              icon="arrow-forward"
+              icon={<ArrowForwardIcon />}
               isDisabled={!nextCat}
             />
             <IconButton
               as={prevCat ? Link : null}
               to={`/cat/${prevCat?.id}`}
-              icon="arrow-back"
+              icon={<ArrowBackIcon />}
               isDisabled={!prevCat}
             />
           </Stack>

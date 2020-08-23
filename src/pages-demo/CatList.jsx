@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { SimpleGrid, Button, Stack } from '@chakra-ui/core';
+import { SimpleGrid, Button } from '@chakra-ui/core';
+import { RepeatIcon } from '@chakra-ui/icons';
 import { CatCard } from '../components/CatCard';
 import { Header } from '../components/Header';
 
@@ -29,31 +30,30 @@ export const CatList = () => {
     <>
       <Header title="Cats">
         <Button
-          variantColor="brand"
+          mr="auto"
+          colorScheme="brand"
           variant="ghost"
           onClick={loadData}
-          leftIcon="repeat"
+          leftIcon={<RepeatIcon />}
           isLoading={loading}
           loadingText="Refresh"
           minW="130px"
         >
           Refresh
         </Button>
-        <Stack ml="auto" spacing="4" isInline>
-          <Button
-            as={Link}
-            variantColor="brand"
-            to="/cat/new"
-          >
-            Add New Cat
-          </Button>
-          <Button
-            as={Link}
-            to="/counter"
-          >
-            Counter demo
-          </Button>
-        </Stack>
+        <Button
+          as={Link}
+          colorScheme="brand"
+          to="/cat/new"
+        >
+          Add New Cat
+        </Button>
+        <Button
+          as={Link}
+          to="/counter"
+        >
+          Counter demo
+        </Button>
       </Header>
       <SimpleGrid spacing="6" columns={{ base: 2, sm: 3, md: 4 }}>
         {cats.map((cat) => (
