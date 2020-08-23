@@ -37,7 +37,11 @@ export const NewCat = () => {
           label="Cat image"
           required="Image is required"
         />
-        <Button type="submit" isLoading={isLoading}>
+        <Button
+          type="submit"
+          isLoading={isLoading}
+          isDisabled={form.isSubmitted && !form.isValid}
+        >
           Submit
         </Button>
       </Formiz>
