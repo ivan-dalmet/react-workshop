@@ -8,7 +8,7 @@
     "@chakra-ui/theme": "1.0.0-rc.2",
     "@formiz/core": "1.0.0-rc.17",
     "@formiz/validations": "1.0.0-rc.14",
-    "axios": "0.20.0",
+    "axios": "0.21.1",
     "emotion-theming": "10.0.27",
     "framer-motion": "2.4.3-beta.2",
     "isomorphic-unfetch": "3.0.0",
