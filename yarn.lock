@@ -1362,7 +1362,7 @@
   dependencies:
     "@chakra-ui/utils" "1.0.0-rc.2"
 
-"@chakra-ui/icons@^1.0.0-rc.2":
+"@chakra-ui/icons@1.0.0-rc.2":
   version "1.0.0-rc.2"
   resolved "https://registry.yarnpkg.com/@chakra-ui/icons/-/icons-1.0.0-rc.2.tgz#16bbda840ee426f47b6fe94bf5254984482aceff"
   integrity sha512-tUd2ueUi/iNz1juO4hRBp1gX0WPWL5T8gAdDIn9Uz/9y6b3iWNj0a8Xrd6L3iQf9r4AJst69GNsNS9JiJxi7+Q==
@@ -4378,9 +4378,9 @@ decamelize@^1.2.0:
   integrity sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
 
 decode-uri-component@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
-  integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.2.tgz#e69dbe25d37941171dd540e024c444cd5188e1e9"
+  integrity sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==
 
 deep-equal@^1.0.1:
   version "1.1.1"
